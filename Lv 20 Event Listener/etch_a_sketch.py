@@ -6,6 +6,13 @@ screen = Screen()
 little_dude.shape("turtle")
 little_dude.color("green")
 little_dude.shapesize(3)
+little_dude.pensize(10)
+little_dude.pencolor('#3D2B1F')
+screen.bgcolor("yellow")
+screen.title("Tina the Turtle")
+little_dude.pu()
+little_dude.setposition(0, -400)
+little_dude.left(90)
 
 def mv_fd():
     little_dude.fd(20)
@@ -14,10 +21,10 @@ def mv_bd():
     little_dude.bk(20)
     
 def turn_left():
-    little_dude.left(90)
+    little_dude.left(10)
     
 def turn_right():
-    little_dude.right(90)
+    little_dude.right(10)
     
 def pen_up():
     little_dude.pu()
@@ -29,6 +36,8 @@ def clear_screen():
     little_dude.clear()
     little_dude.pu()
     little_dude.home()
+    little_dude.left(90)
+    little_dude.setposition(0, -400)
     little_dude.pd()
 
 screen.listen()
