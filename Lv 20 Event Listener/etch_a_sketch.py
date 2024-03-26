@@ -1,9 +1,10 @@
 from turtle import Turtle, Screen
+from class_cars import Car
 import random
 
 # OBJECTS
 little_dude = Turtle()
-car = Turtle()
+car = Car()
 screen = Screen()
 
 # SCREEN
@@ -14,7 +15,7 @@ screen.title("Tina the Turtle")
 little_dude.shape("turtle")
 little_dude.color("green")
 little_dude.shapesize(3)
-little_dude.pensize(10)
+little_dude.pensize(30)
 little_dude.pencolor('#3D2B1F')
 little_dude.pu()
 little_dude.setposition(0, -400)
@@ -23,23 +24,34 @@ little_dude.left(90)
 # CAR
 color_list = ["aquamarine", "aquamarine4", "bisque4", "blue", "BlueViolet", "brown1", "CadetBlue1", "chartreuse", "chartreuse4", "chocolate", "coral2",
             "DarkOliveGreen3", "DarkGoldenrod1", "DarkGreen", "DarkOrange1", "DarkRed", "DarkSeaGreen3", "DarkSlateGray", "DeepPink2", "DarkTurquoise", "DeepSkyBlue"]
-car.shape("square")
-car.color(color_list[3])
-car.shapesize(3)
+# car.shape("square")
+# car.color(color_list[3])
+# car.shapesize(3)
 car.pu()
 car.setposition(0, 400)
 
+
+
+# Car moving behaviour
+
+def moving_car():
+    for i in range(30):
+        car.fd(i)
+    for i in range(30):
+        car.fd(-i*2)
+
+
 def mv_fd():
-    little_dude.fd(200)
+    little_dude.fd(50)
     
 def mv_bd():
-    little_dude.bk(20)
+    little_dude.bk(50)
     
 def turn_left():
-    little_dude.left(10)
+    little_dude.left(20)
     
 def turn_right():
-    little_dude.right(10)
+    little_dude.right(20)
     
 def pen_up():
     little_dude.pu()
@@ -60,6 +72,7 @@ def clear_screen():
     car.pu()
     car.home()
     car.setposition(0, 400)
+    moving_car()
 
 screen.listen()
 
@@ -70,5 +83,5 @@ screen.onkey(fun=turn_right, key="d")
 screen.onkey(pen_up, "q")
 screen.onkey(pen_down, "e")
 screen.onkey(clear_screen, "space")
-
+ 
 screen.exitonclick()

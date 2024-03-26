@@ -10,7 +10,7 @@ screen.setup(width=600, height=600)
 
 
 
-p1 = Player("turtle", "green")
+p1 = Player("turtle", "green", 2)
 
 def mv_fd():
     p1.fd(20)
@@ -27,9 +27,9 @@ def turn_right():
 screen.listen()
 
 screen.onkey(fun=mv_fd, key="e")
-# screen.onkey(fun=mv_bk, key="d")
-# screen.onkey(fun=turn_left, key="s")
-# screen.onkey(fun=turn_right, key="f")
+screen.onkey(fun=mv_bk, key="d")
+screen.onkey(fun=turn_left, key="s")
+screen.onkey(fun=turn_right, key="f")
 
 # game_is_on = True
 # while game_is_on:

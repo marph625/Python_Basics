@@ -1,0 +1,2 @@
+color_list = ["aquamarine", "aquamarine4", "bisque4", "blue", "BlueViolet", "brown1", "CadetBlue1", "chartreuse", "chartreuse4", "chocolate", "coral2",
+            "DarkOliveGreen3", "DarkGoldenrod1", "DarkGreen", "DarkOrange1", "DarkRed", "DarkSeaGreen3", "DarkSlateGray", "DeepPink2", "DarkTurquoise", "DeepSkyBlue"]
