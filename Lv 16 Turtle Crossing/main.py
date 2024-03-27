@@ -6,11 +6,13 @@ from scoreboard import Scoreboard
 
 screen = Screen()
 screen.setup(width=600, height=600)
-#screen.tracer(0)
 
-
+# Turtle positions immediately
+screen.tracer(0)
 
 p1 = Player("turtle", "green", 2)
+
+c1 = CarManager(2)
 
 def mv_fd():
     p1.fd(20)
@@ -31,10 +33,10 @@ screen.onkey(fun=mv_bk, key="d")
 screen.onkey(fun=turn_left, key="s")
 screen.onkey(fun=turn_right, key="f")
 
-# game_is_on = True
-# while game_is_on:
-#     time.sleep(0.1)
-#     screen.update()
+game_is_on = True
+while game_is_on:
+    time.sleep(0.1)
+    screen.update()
 
-#Screen.clearscreen()
+Screen.clearscreen()
 screen.exitonclick()

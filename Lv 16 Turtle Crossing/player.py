@@ -8,9 +8,13 @@ FINISH_LINE_Y = 280
 class Player(Turtle):
     def __init__(self, shape, color, shapesize) -> None:
         super().__init__()
+        # Params
         self.shape(shape)
         self.color(color)
         self.shapesize(shapesize)
+        
+        # Hard coded arguments
+        self.left(90)
         self.penup()
         self.goto(STARTING_POSITION)
         
