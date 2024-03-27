@@ -12,7 +12,7 @@ screen.tracer(0)
 
 p1 = Player("turtle", "green", 2)
 
-c1 = CarManager(2)
+c1 = CarManager()
 
 def mv_fd():
     p1.fd(20)
