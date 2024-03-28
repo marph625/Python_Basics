@@ -1,4 +1,3 @@
-from player import Player
 from turtle import Turtle
 import random
 
@@ -14,9 +13,10 @@ class CarManager(Turtle):
         self.shape("square")
         self.shapesize(2)
         self.penup()
-        self.setposition(0, 400)
+        self.setposition(400, 400)
 
 
     def move(self):
         self.forward(MOVE_INCREMENT)
 
+ 
