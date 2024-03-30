@@ -41,3 +41,10 @@ class Enemy(Character):
 
         self.weapon = weapon
         self.health_bar = HealthBar(self, color="red")
+
+class Dragon(Character):
+    def __init__(self, name: str, health: int, weapon: str) -> None:
+        super().__init__(name=name, health=health)
+
+        self.weapon = weapon
+        self.health_bar = HealthBar(self, color="purple")
