@@ -1,40 +1,9 @@
-import random
-from blackjack_functions import *
-
-ace = 11
-
-cards = [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
-player_cards = []
-computer_cards = []
-
-player_score = 0
-computer_score = 0
-
-player = input("What's your name?\n")
-print(f"Hello {player}! Let's play Blackjack!")
-
-computer_won = False
-player_won = False
-
-print(player_cards, computer_cards)
-
-# player and computer will be dealt two random values from cards
-# this needs improvement
-
-player_cards.append(random.choice(cards))
-computer_cards.append(random.choice(cards))
-player_cards.append(random.choice(cards))
-computer_cards.append(random.choice(cards))
-
-print(player_cards, computer_cards)
+from blackjack_project import *
 
 def check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won):
 
     # check if computer or player has blackjack
     # this needs improvement
-
-    global ace
 
     for card in computer_cards:
         computer_score += card
@@ -42,26 +11,18 @@ def check_blackjack(player_cards, player_score, player_won, computer_cards, comp
         player_score += card
 
     if computer_score == 21:
-        print(computer_cards,"Computer has Blackjack")
+        print("Computer has Blackjack")
         computer_won = True
     elif player_score == 21:
-        print(player_cards,"Player has Blackjack")
+        print("Player has Blackjack")
         player_won = True
     elif player_score > 21:
         if ace in player_cards:
-            check_ace(player_cards)
-        else:
-            computer_won = True
+            ace = 1
+            player_score -= 10
+            print(player_cards)
 
-def check_ace(player_cards):
-    global ace
-    ace = 1
-    player_score = 0
 
-    for card in player_cards:
-        player_score += card
-    
-    check_win(player_won, player_cards, computer_won, computer_cards)         
 
 def check_win(player_won, player_cards, computer_won, computer_cards):
     if computer_won == True:
@@ -89,9 +50,3 @@ def computer_draw_card(computer_cards):
     print(computer_cards)
     check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won)
     check_win(player_won, player_cards, computer_won, computer_cards)
-
-# main loop
-while computer_won == False:
-    check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won)
-    check_win(player_won, player_cards, computer_won, computer_cards)
-
