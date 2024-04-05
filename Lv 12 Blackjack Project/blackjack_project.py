@@ -29,12 +29,12 @@ computer_cards.append(random.choice(cards))
 
 print(player_cards, computer_cards)
 
-def check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won):
+def check_blackjack(player_cards, player_score, computer_cards, computer_score):
 
     # check if computer or player has blackjack
     # this needs improvement
 
-    global ace
+    global ace, computer_won, player_won
 
     for card in computer_cards:
         computer_score += card
@@ -61,9 +61,10 @@ def check_ace(player_cards):
     for card in player_cards:
         player_score += card
     
-    check_win(player_won, player_cards, computer_won, computer_cards)         
+    check_win(player_cards, computer_cards)         
 
-def check_win(player_won, player_cards, computer_won, computer_cards):
+def check_win(player_cards, computer_cards):
+    global computer_won, player_won
     if computer_won == True:
         print(f"{player_cards} | {computer_cards} - Computer wins")
     elif player_won == True:
@@ -80,18 +81,18 @@ def check_win(player_won, player_cards, computer_won, computer_cards):
 def player_draw_card(player_cards):
     player_cards.append(random.choice(cards))
     print(player_cards)
-    check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won)
-    check_win(player_won, player_cards, computer_won, computer_cards)
+    check_blackjack(player_cards, player_score, computer_cards, computer_score)
+    check_win(player_cards, computer_cards)
 
 
 def computer_draw_card(computer_cards):
     computer_cards.append(random.choice(cards))
     print(computer_cards)
-    check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won)
-    check_win(player_won, player_cards, computer_won, computer_cards)
+    check_blackjack(player_cards, player_score, computer_cards, computer_score)
+    check_win(player_cards, computer_cards)
 
 # main loop
 while computer_won == False:
-    check_blackjack(player_cards, player_score, player_won, computer_cards, computer_score, computer_won)
-    check_win(player_won, player_cards, computer_won, computer_cards)
+    check_blackjack(player_cards, player_score, computer_cards, computer_score)
+    check_win(player_cards, computer_cards)
 
